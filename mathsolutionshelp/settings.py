@@ -59,9 +59,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mathsolutionshelp',
-	'USER': 'mathhelp',
-	'PASSWORD': 'w@/4fuY(',
-	'HOST': '127.0.0.1',
+        'USER': 'mathhelp',
+        'PASSWORD': 'w@/4fuY(',
+        'HOST': '127.0.0.1',
     }
 }
 
@@ -84,3 +84,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates')),
+)
+
+# Additional locations of static files
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static')),
+)
