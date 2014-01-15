@@ -1,3 +1,7 @@
+import os
+from django.utils.translation import ugettext as _
+
+
 """
 Django settings for mathsolutionshelp project.
 
@@ -9,7 +13,6 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -40,6 +43,7 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -50,6 +54,11 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'mathsolutionshelp.urls'
 
 WSGI_APPLICATION = 'mathsolutionshelp.wsgi.application'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'mainsite.context_processors.get_email_address',
+)
 
 
 # Database
@@ -78,6 +87,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = (
+    os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'locale')),
+)
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('es', _('Spanish')),
+)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
@@ -98,3 +116,5 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static')),
 )
+
+EMAIL_ADDRESS = 'contacts@mathsolutionshelp.com'

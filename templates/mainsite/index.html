@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block content %}
+<!-- Carousel -->
+<div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+  
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="item-content">
+                <img src="{% static 'images/slide1_banner.jpg' %}" class="img-responsive" alt="About Math Solutions Help service"/>
+                <div class="item-description">
+                    <h3>Improve your academic performance with MathSolutionsHelp!</h3>
+                    <p><strong>Need help with your homework assignment or get prepared for an exam?</strong><br/>
+                        Look no further! On our website you can get quality help for your homework assignment, coursework or thesis in Mathematics.
+                        All services are provided in timely manner and for affordable price.
+                    </p>
+                    <a href="#" class="pull-right btn btn-primary" role="button">Get Free Estimate &raquo;</a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-content">
+                <h3>It's easy</h3>
+                <ol>
+                    <li><strong><a href="">Submit your problem</a></strong></li>
+                    <li><strong>Get free estimate</strong></li>
+                    <li><strong>Pay securely via PayPal &copy;</strong></li>
+                    <li><strong>Get your solution!</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-content">
+                <h2 style="height:200px;">Slide number 3</h2>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+<!-- Example row of columns -->
+<div class="row">
+    <div class="col-lg-4">
+        <h2>Safari bug warning!</h2>
+        <p class="text-danger">Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-lg-4">
+        <h2>Heading</h2>
+        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+        <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-lg-4">
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+        <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+    </div>
+</div>
+{% endblock %}

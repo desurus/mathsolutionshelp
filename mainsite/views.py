@@ -10,5 +10,5 @@ def home(request):
     context = {
         'username': username
     }
-    return render(request, 'base.html', context)
+    return render(request, 'mainsite/index.html', context)
  

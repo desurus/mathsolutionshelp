@@ -57,6 +57,61 @@ body {
   border-bottom: 0;
   border-radius: 0 0 5px 5px;
 }
+.logo {
+  margin-bottom: 10px;
+  max-width: 448px;
+}
+.logo h5 {
+  margin-bottom: 0;
+  margin-top: 5px;
+  color: #666;
+}
+.header-contact-us address {
+  margin-bottom: 0;
+  margin-top: 11px;
+}
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+  border-color: #fff;
+  background-color: #ddd;
+  background-image: none;
+  box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
+}
+.carousel-control {
+  background-image: none !important;
+}
+.carousel-control {
+  color: #f1f1f1;
+}
+.carousel-control .glyphicon {
+  margin-top: -20px;
+}
+.carousel-control:hover {
+  color: #ccc;
+}
+.glyphicon-chevron-right:before, .glyphicon-chevron-left:before {
+  font-size: 2em;
+}
+.carousel {
+  margin: 20px 0 55px;
+}
+.carousel-indicators li {
+  border-color: #428bca;
+}
+.carousel-indicators .active {
+  background-color: #428bca;
+}
+.carousel-inner>.item .item-content {
+  width:70%;
+  margin: 0 auto;
+}
+.carousel-inner>.item .item-content .item-description {
+  position: absolute;
+  left: 15%;
+  bottom: 0;
+  width: 70%;
+  padding: 0 20px;
+  background: rgba(255,255,255,0.9);
+}
 
 @media (min-width: 768px) {
   .nav-justified {
@@ -84,5 +139,8 @@ body {
   .footer {
     padding-left: 0;
     padding-right: 0;
+  }
+  .carousel-indicators {
+	bottom: -50px;
   }
 }
