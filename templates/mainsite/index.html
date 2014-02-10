@@ -4,21 +4,21 @@
 
 {% block content %}
 <!-- Carousel -->
-<div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel">
+<a href="#" onclick="MATHHELP.pause_carousel();">pause carousel</a>
+<div id="slider-carousel" class="carousel slide hidden-xs">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li class="active" onclick="MATHHELP.slide_carousel_to(0);"></li>
+        <li onclick="MATHHELP.slide_carousel_to(1);"></li>
+        <li onclick="MATHHELP.slide_carousel_to(2);"></li>
     </ol>
-  
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
         <div class="item active">
             <div class="item-content">
                 <img src="{% static 'images/slide1_banner.jpg' %}" class="img-responsive" alt="About Math Solutions Help service"/>
                 <div class="item-description">
-                    <h3>Improve your academic performance with MathSolutionsHelp!</h3>
+                    <h3>Improve your academic performance with MathSolutionsHelp</h3>
                     <p><strong>Need help with your homework assignment or get prepared for an exam?</strong><br/>
                         Look no further! On our website you can get quality help for your homework assignment, coursework or thesis in Mathematics.
                         All services are provided in timely manner and for affordable price.
@@ -30,47 +30,67 @@
         </div>
         <div class="item">
             <div class="item-content">
-                <h3>It's easy</h3>
-                <ol>
-                    <li><strong><a href="">Submit your problem</a></strong></li>
-                    <li><strong>Get free estimate</strong></li>
-                    <li><strong>Pay securely via PayPal &copy;</strong></li>
-                    <li><strong>Get your solution!</strong></li>
-                </ol>
+                <img src="{% static 'images/slide2_banner.jpg' %}" class="img-responsive" alt="Getting a solution in math is easy."/>
+                <div class="item-description left">
+                    <h3>It's easy</h3>
+                    <ol>
+                        <li><a href="">Submit your problem</a></li>
+                        <li>Get free estimate</li>
+                        <li>Pay securely via PayPal &copy;</li>
+                        <li>Get your solution!</li>
+                    </ol>
+                </div>
             </div>
         </div>
-        <div class="item">
+        <div class="item" id="experts_slide" data-state="not started">
             <div class="item-content">
-                <h2 style="height:200px;">Slide number 3</h2>
+                <img src="{% static 'images/slide3_banner.jpg' %}" class="img-responsive" alt="Our experts will help you with your home assignment."/>
+                <h3 class="slide-title hidden-sm"><span class="counter pull-left" id="problems-solved-counter">00</span>Problems solved by our experts to date</h3>
+                <div class="item-description">
+                    <h3>Our promise</h3>
+                    <p>We understand that all students are concerned about the accuracy of the solutions they receive. Each solution submitted by our tutors is reviewed by an independent expert prior to being sent to the customer. This significantly reduces the probability of an error caused by Human Factor.</p>
+                    <a href="#" class="pull-right btn btn-primary" role="button">See Example Solutions &raquo;</a>
+                    <div class="clearfix"></div>
+                </div>
             </div>
         </div>
     </div>
-  
     <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <a class="left carousel-control" href="#slider-carousel" id="carousel-slide-left">
         <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
-    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <a class="right carousel-control" href="#slider-carousel" id="carousel-slide-right">
         <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
 </div>
 <!-- Example row of columns -->
 <div class="row">
     <div class="col-lg-4">
-        <h2>Safari bug warning!</h2>
-        <p class="text-danger">Safari exhibits a bug in which resizing your browser horizontally causes rendering errors in the justified nav that are cleared upon refreshing.</p>
+        <h2>Money Back Guarantee</h2>
+        <img src="{% static 'images/guarantee.jpg' %}" alt="Money Back Guarantee" class="img-responsive pull-left" style="padding: 0 15px 15px 0;"/>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        <p><a class="btn btn-primary" href="#" role="button">Read more &raquo;</a></p>
     </div>
     <div class="col-lg-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        <h2>Testimonials</h2>
+        <div class="media">
+            <img class="media-object pull-left" src="{% static 'images/avatar_generic.jpg' %}" alt="Thank you testimonial here"/>
+            <div class="media-body">
+                <h4 class="media-heading">Thank you very much!</h4>
+                Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
+            </div>
+        </div>
+        <p><a class="btn btn-primary" href="#" role="button" style="margin-top: 10px;">Read more &raquo;</a></p>
     </div>
     <div class="col-lg-4">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-        <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+        <h2>Rates</h2>
+        <p>Our rates are <strong class="text-success">$20.00</strong> per hour. We will be able to provide you info on a price as soon as we receive your task. Please, submit your problem for exact cost evaluation, which is free of charge, and we'll get back to you asap.</p>
+        <p>Once you've received an exact cost evaluation you will also receive a detailed payment instruction. We accept PayPal and major credit cards thru PayPal service.</p>
+        <p><a class="btn btn-primary" href="#" role="button">Get free estimate &raquo;</a></p>
     </div>
 </div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static 'js/countUp.js' %}" type="text/javascript"></script>
 {% endblock %}
