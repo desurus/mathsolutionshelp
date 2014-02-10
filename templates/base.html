@@ -52,7 +52,23 @@
             {% block content %}{% endblock %}
             <!-- Site footer -->
             <div class="footer">
-                <p>&copy; Company 2013</p>
+                <ul class="list-inline">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Problem Solving</a></li>
+                    <li><a href="#">Get Free Estimate</a></li>
+                    <li><a href="#">Our Experts</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Add Testimonial</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+                <address>
+                    <strong>Contact Us:</strong><br>
+                    <a href="mailto:{{ CONTACTS_EMAIL_ADDRESS }}">{{ CONTACTS_EMAIL_ADDRESS }}</a><br/>
+                    <abbr title="Phone">P:</abbr> +1(310) 848-9045
+                </address>
+                <p><small>Copyright &copy; 2014 by MathSolutionsHelp.com</small></p>
             </div>
         </div><!-- /container -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script> 
