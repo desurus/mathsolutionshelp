@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}Get Free Estimate{% endblock %}
+
+{% block content %}
+	<div class="col-md-12"><h2>Get Free Estimate</h2></div>
+	<div class="col-md-9">
+		<p>Please submit your problems here and you will get a free, non-obligatory cost estimate from us shortly.<br/>
+		Alternatively you can submit your problem via <a href="mailto:{{ CONTACTS_EMAIL_ADDRESS }}">email</a>.<br/>
+		<strong>Please note:</strong> all <small><span class="text-danger glyphicon glyphicon-asterisk"></span></small> fields are required.</p>
+		<form method="post" action="#" enctype="multipart/form-data">
+			{% csrf_token %}
+			{% if form.non_field_errors %}
+				<div class="alert alert-danger">{{ form.non_field_errors }}</div>
+			{% endif %}
+			{% if form.errors %}
+				<div class="alert alert-danger">There are errors in your submission. Please correct them and try again.</div>
+			{% endif %}
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Contact information</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group col-md-6{% if form.name.errors %} has-error{% endif %}">
+						<label for="{{ form.name.id_for_label }}" class="control-label">Name: <small><span class="text-danger glyphicon glyphicon-asterisk"></span></small></label>
+						{{ form.name }}
+					</div>
+					<div class="clearfix"></div>
+					<div class="form-group col-md-6{% if form.email.errors %} has-error{% endif %}">
+						<label for="{{ form.email.id_for_label }}" class="control-label">Email: <small><span class="text-danger glyphicon glyphicon-asterisk"></span></small></label>
+						{{ form.email }}
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Problem details</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group col-md-6{% if form.deadline.errors %} has-error{% endif %}">
+						<label for="{{ form.deadline.id_for_label }}" class="control-label">Deadline: <small><span class="text-danger glyphicon glyphicon-asterisk"></span></small></label>
+						{{ form.deadline }}
+						<span class="help-block">Please enter deadline date in the mm/dd/yyyy format.</span>
+					</div>
+					<div class="clearfix"></div>
+					<div class="col-md-6" style="margin: 10px 0;">
+						<strong>You need: <small><span class="text-danger glyphicon glyphicon-asterisk"></span></small></strong>
+						{% if form.solution_type.errors %}
+							<div class="alert alert-danger">Please select solution type.</div>
+						{% endif %}
+						{% for radio in form.solution_type %}
+							<div class="radio">
+								<label>
+									{{ radio.tag }}
+									{{ radio.choice_label }}
+								</label>
+							</div>
+						{% endfor %}
+					</div>
+					<div class="clearfix"></div>
+					<div class="form-group col-md-12">
+						<label for="{{ form.comments.id_for_label }}">Questions/Comments:</label>
+						{{ form.comments }}
+					</div>
+					<div class="clearfix"></div>
+					<div class="col-md-12">
+						<h4>Attach files:</h4>
+						<p>
+							<small>You can attach files with your problem. Only images are allowed.<br/>
+							If you would like to attach files other than images please submit your problem via <a href="mailto:{{ CONTACTS_EMAIL_ADDRESS }}">email</a>.</small>
+						</p>
+						{% if form.attachment1.errors or form.attachment2.errors or form.attachment3.errors %}
+							<div class="alert alert-danger">You have uploaded a non image file or you image is corrupted. Please try again.</div>
+						{% endif %}
+						<div class="form-group">
+							<label for="{{ form.attachment1.id_for_label }}">Image 1:</label>
+							{{ form.attachment1 }}
+						</div>
+						<div class="form-group">
+							<label for="{{ form.attachment2.id_for_label }}">Image 2:</label>
+							{{ form.attachment2 }}
+						</div>
+						<div class="form-group">
+							<label for="{{ form.attachment3.id_for_label }}">Image 3:</label>
+							{{ form.attachment3 }}
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="col-md-12">
+						<strong>Please enter symbols from the image: <small><span class="text-danger glyphicon glyphicon-asterisk"></span></small></strong>
+						{% if form.captcha.errors %}
+							<div class="alert alert-danger">Please enter correct symbols from the image.</div>
+						{% endif %}
+						<div class="captcha-wrapper">
+							{{ form.captcha }}
+						</div>
+						<div class="clearfix"></div>
+						<button class="btn btn-primary" type="submit">Submit My Problem</button>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="col-md-3">
+		<h3>Widgets</h3>
+	</div>
+	<div class="clearfix"></div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

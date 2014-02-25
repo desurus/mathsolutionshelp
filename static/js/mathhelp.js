@@ -9,6 +9,17 @@ var MATHHELP = MATHHELP || {};
 MATHHELP = function(mathhelp, $){
 	var _self = mathhelp;
 	var _initialized = false;
+
+	/**
+	 * Checks for a configuration option
+	 */
+	_self.getConfig = function(option){
+		if (typeof(_self.config) == 'undefined' || typeof(_self.config[option]) == 'undefined'){
+			return null;
+		}
+
+		return _self.config[option];
+	};
 	
 	/**
 	 * Public init - initialize the javascript object
@@ -41,7 +52,7 @@ MATHHELP = function(mathhelp, $){
 			var experts_slide_state = $('#experts_slide').attr('data-state');
 			/* counter */
 			if (experts_slide_state !== 'started'){
-				var numAnim = new countUp("problems-solved-counter", '0', '88', '0', '4.5');
+				var numAnim = new countUp("problems-solved-counter", '0', _self.getConfig('counter'), '0', '4.5');
 				numAnim.start(function(){
 					// callback after counter animation is done
 					

@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mainsite',
+    'captcha',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,6 +58,7 @@ ROOT_URLCONF = 'mathsolutionshelp.urls'
 WSGI_APPLICATION = 'mathsolutionshelp.wsgi.application'
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.messages.context_processors.messages',
     'django.contrib.auth.context_processors.auth',
     'mainsite.context_processors.get_email_address',
 )
@@ -118,3 +121,5 @@ STATICFILES_DIRS = (
 )
 
 EMAIL_ADDRESS = 'contacts@mathsolutionshelp.com'
+
+CAPTCHA_OUTPUT_FORMAT = '%(image)s <br/> %(hidden_field)s <div class="captcha-input">%(text_field)s</div>'
