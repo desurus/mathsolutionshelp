@@ -19,3 +19,13 @@ class ProblemSubmissionForm(forms.Form):
     attachment2 = forms.ImageField(required=False)
     attachment3 = forms.ImageField(required=False)
     captcha = CaptchaField()
+
+
+class ContactUsForm(forms.Form):
+    """This is a class for the contact us page form."""
+
+    name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), max_length=50)
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    subject = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), max_length=100)
+    text = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}), max_length=500)
+    captcha = CaptchaField()

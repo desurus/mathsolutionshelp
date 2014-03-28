@@ -77,13 +77,13 @@
             <p><em>"{{ testimonial.text }}"</em></p>
             <footer>{{ testimonial.author }}, <cite title="Source Title">{{ testimonial.source }}</cite></footer>
         </blockquote>
-        <p><a class="btn btn-primary" href="#" role="button" style="margin-top: 10px;">Read More Testimonials &raquo;</a></p>
+        <p><a class="btn btn-primary" href="{% url 'testimonials' %}" role="button" style="margin-top: 10px;">Read More Testimonials &raquo;</a></p>
     </div>
     <div class="col-lg-4">
         <h2>Rates</h2>
         <h3 class="text-info price-rate">Starting from $20/hour.</h3>
         <p>We will be able to provide you info on a price as soon as we receive your task. Please, submit your problem for exact cost evaluation, which is free of charge, and we'll get back to you asap.</p>
-        <p><a class="btn btn-primary" href="#" role="button">Get Free Estimate &raquo;</a></p>
+        <p><a class="btn btn-primary" href="{% url 'get_estimate' %}" role="button">Get Free Estimate &raquo;</a></p>
     </div>
 </div>
 {% endblock %}

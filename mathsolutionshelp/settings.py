@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
+# Admins
+ADMINS = (
+    ('Sasha', 'okryshchenko@gmail.com'),
+)
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -39,6 +44,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     'mainsite',
     'captcha',
 )
@@ -61,6 +68,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'django.contrib.auth.context_processors.auth',
     'mainsite.context_processors.get_email_address',
+    'mainsite.context_processors.get_testimonials',
 )
 
 
@@ -100,6 +108,20 @@ LANGUAGES = (
 )
 
 
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'alexander@dezko.info'
+EMAIL_HOST_PASSWORD = '1Voblinda'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'alexander@dezko.info'
+EMAIL_USE_TLS = True
+
+
+# Media files
+MEDIA_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'media'))
+MEDIA_URL = '/media/'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
@@ -123,3 +145,5 @@ STATICFILES_DIRS = (
 EMAIL_ADDRESS = 'contacts@mathsolutionshelp.com'
 
 CAPTCHA_OUTPUT_FORMAT = '%(image)s <br/> %(hidden_field)s <div class="captcha-input">%(text_field)s</div>'
+
+SITE_ID = 1

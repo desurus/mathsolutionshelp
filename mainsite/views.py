@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from mainsite.models import Testimonial, ProblemCounter, ProblemsForm, Problems
-from mainsite.forms import ProblemSubmissionForm
+from mainsite.models import Testimonial, ProblemCounter, ProblemForm, TestimonialForm
+from mainsite.forms import ContactUsForm
 from random import choice
 from datetime import datetime, timedelta
 from django.utils.timezone import utc
 from django.http import HttpResponseRedirect
+from django.core.mail import mail_admins
 
 
 def home(request):
@@ -48,35 +49,19 @@ def get_estimate(request):
     context = {}
 
     if request.method == 'POST':
-        form = ProblemsForm(request.POST, request.FILES)
+        form = ProblemForm(request.POST, request.FILES)
         if form.is_valid():
-            # Process the data in form.cleaned_data
-            files = {}
-            path = ''
+            form.save()
 
-            if 'attachment1' in request.FILES:
-                files.update({
-                    'attachment1': request.FILES['attachment1'],
-                })
-            if 'attachment2' in request.FILES:
-                files.update({
-                    'attachment2': request.FILES['attachment2'],
-                })
-            if 'attachment3' in request.FILES:
-                files.update({
-                    'attachment3': request.FILES['attachment3'],
-                })
-            # now lets pass dict to the handler
-            if files:
-                path = handleUploadedFiles(files)
-                print path
+            # now lets send email to the admins
+            mail_admins('New problem submitted', 'New problem has been submitted.', fail_silently=False)
 
             return HttpResponseRedirect('/thanks/')
         if form.errors:
             print form.errors
 
     else:
-        form = ProblemSubmissionForm()
+        form = ProblemForm()
 
     context.update({
         'form': form,
@@ -85,8 +70,74 @@ def get_estimate(request):
     return render(request, 'mainsite/estimate.html', context)
 
 
-def handleUploadedFiles(files):
-    """This function handles uploaded files."""
+def add_testimonial(request):
+    """Renders a page where user can add testimonial."""
 
-    return '/path/'
+    context = {}
 
+    if request.method == 'POST':
+        form = TestimonialForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            # now lets send email to the admins
+            mail_admins('New testimonial added', 'New testimonial has been submitted.', fail_silently=False)
+
+            return HttpResponseRedirect('/thanks/')
+        if form.errors:
+            print form.errors
+
+    else:
+        form = TestimonialForm()
+
+    context.update({
+        'form': form,
+    })
+
+    return render(request, 'mainsite/add_testimonial.html', context)
+
+
+def contact_us(request):
+    """Renders a page with contact us form."""
+
+    context = {}
+
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['text']
+
+            # now lets send email to the admins
+            mail_admins('[Contact Us] ' + subject, 'From: ' + name + ', ' + email + '\n' + message, fail_silently=False)
+
+            return HttpResponseRedirect('/thanks/')
+        if form.errors:
+            print form.errors
+
+    else:
+        form = ContactUsForm()
+
+    context.update({
+        'form': form,
+    })
+
+    return render(request, 'mainsite/contact_us.html', context)
+
+
+def testimonials(request):
+    """This page renders all testimonials in users language."""
+
+    context = {}
+    language_code = request.LANGUAGE_CODE
+
+    # we need to get testimonials in the users language
+    all_testimonials = Testimonial.objects.filter(language=language_code)
+
+    context.update({
+        'testimonials': all_testimonials,
+    })
+
+    return render(request, 'mainsite/testimonials.html', context)

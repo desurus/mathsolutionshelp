@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}Testimonials{% endblock %}
+
+{% block content %}
+	<div class="col-md-12"><h2>Testimonials</h2></div>
+	<div class="col-md-9">
+        <ul class="list-unstyled">
+			{% for testimonial in testimonials %}
+				<li>
+					<blockquote>
+						<p><em>"{{ testimonial.text }}"</em></p>
+						<footer>{{ testimonial.author }}, <cite title="Source Title">{{ testimonial.source }}</cite></footer>
+					</blockquote>
+				</li>
+			{% endfor %}
+		</ul>
+		<a href="{% url 'add_testimonial' %}" class="btn btn-primary" role="button">Add Your Testimonial</a>
+    </div>
+	<div class="col-md-3">
+		{% include 'mainsite/guarantee_widget.html' %}
+	</div>
+	<div class="clearfix"></div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

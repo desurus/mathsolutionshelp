@@ -1,0 +1,17 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<div class="panel panel-info">
+    <div class="panel-heading"><strong>Testimonials</strong></div>
+    <div class="panel-body">
+        {% for testimonial in random_testimonials %}
+            <blockquote>
+                <p><em>"{{ testimonial.text }}"</em></p>
+                <footer>{{ testimonial.author }}, <cite title="Source Title">{{ testimonial.source }}</cite></footer>
+            </blockquote>
+        {% endfor %}
+        <p class="text-center">
+            <a href="{% url 'testimonials' %}" class="btn btn-primary btn-sm" role="button">Read More Testimonials &raquo;</a>
+        </p>
+    </div>
+</div>
