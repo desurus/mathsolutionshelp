@@ -69,6 +69,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'mainsite.context_processors.get_email_address',
     'mainsite.context_processors.get_testimonials',
+    'django.core.context_processors.request',
 )
 
 

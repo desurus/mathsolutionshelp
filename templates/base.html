@@ -35,14 +35,18 @@
                     <div class="clearfix"></div>
                 </a>
                 <ul class="nav nav-justified">
-                    <li class="active"><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="#">Problem Solving</a></li>
-                    <li><a href="{% url 'get_estimate' %}">Get Free Estimate</a></li>
-                    <li><a href="#">Our Experts</a></li>
+                    {% url 'home' as home %}
+                    {% url 'problem_solving' as problem_solving %}
+                    {% url 'get_estimate' as get_estimate %}
+                    {% url 'experts' as experts %}
+                    <li {% if request.path == home %}class="active"{% endif %}><a href="{{ home }}">Home</a></li>
+                    <li {% if request.path == problem_solving %}class="active"{% endif %}><a href="{{ problem_solving }}">Problem Solving</a></li>
+                    <li {% if request.path == get_estimate %}class="active"{% endif %}><a href="{{ get_estimate }}">Get Free Estimate</a></li>
+                    <li {% if request.path == experts %}class="active"{% endif %}><a href="{{ experts }}">Our Experts</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">About Us</a></li>
+                            <li><a href="{% url 'about' %}">About Us</a></li>
                             <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
                             <li><a href="{% url 'add_testimonial' %}">Add Testimonial</a></li>
                         </ul>
@@ -53,15 +57,15 @@
             <!-- Site footer -->
             <div class="footer">
                 <ul class="list-inline">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Problem Solving</a></li>
-                    <li><a href="#">Get Free Estimate</a></li>
-                    <li><a href="#">Our Experts</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Add Testimonial</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{{ problem_solving }}">Problem Solving</a></li>
+                    <li><a href="{{ get_estimate }}">Get Free Estimate</a></li>
+                    <li><a href="{{ experts }}">Our Experts</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                    <li><a href="{% url 'add_testimonial' %}">Add Testimonial</a></li>
+                    <li><a href="{% url 'terms' %}">Terms of Service</a></li>
+                    <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
                 </ul>
                 <address>
                     <strong>Contact Us:</strong><br>

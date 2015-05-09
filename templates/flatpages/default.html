@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block content %}
+	<div class="col-md-12"><h2>{{ flatpage.title }}</h2></div>
+	<div class="col-md-9">
+        {{ flatpage.content }}
+    </div>
+	<div class="col-md-3">
+		{% include 'mainsite/testimonial_widget.html' %}
+		{% if request.path != '/money-back-guarantee/' %}
+			{% include 'mainsite/guarantee_widget.html' %}
+		{% endif %}
+	</div>
+	<div class="clearfix"></div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

@@ -56,7 +56,7 @@ def get_estimate(request):
             # now lets send email to the admins
             mail_admins('New problem submitted', 'New problem has been submitted.', fail_silently=False)
 
-            return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect('/thank-you/')
         if form.errors:
             print form.errors
 
@@ -83,7 +83,7 @@ def add_testimonial(request):
             # now lets send email to the admins
             mail_admins('New testimonial added', 'New testimonial has been submitted.', fail_silently=False)
 
-            return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect('/thank-you/')
         if form.errors:
             print form.errors
 
@@ -113,7 +113,7 @@ def contact_us(request):
             # now lets send email to the admins
             mail_admins('[Contact Us] ' + subject, 'From: ' + name + ', ' + email + '\n' + message, fail_silently=False)
 
-            return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect('/thank-you/')
         if form.errors:
             print form.errors
 

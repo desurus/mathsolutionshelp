@@ -1,6 +1,7 @@
 import string
 import random
 from django.db import models
+from django.contrib.flatpages.models import FlatPage
 from django import forms
 from django.conf import settings
 from django.forms import ModelForm
@@ -101,3 +102,12 @@ class ProblemForm(ModelForm):
             'solution_type': forms.RadioSelect(),
             'comments': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
         }
+
+
+class ExtendedFlatPage(FlatPage):
+    """This custom flatpage extends default one by adding a language field."""
+
+    lang = getattr(settings, "LANGUAGES", None)
+
+    language = models.CharField(max_length=2, choices=lang)
+

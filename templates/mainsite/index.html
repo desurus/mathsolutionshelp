@@ -22,7 +22,7 @@
                         Look no further! On our website you can get quality help for your homework assignment, coursework or thesis in Mathematics.
                         All services are provided in timely manner and for affordable price.
                     </p>
-                    <a href="#" class="pull-right btn btn-primary" role="button">Get Free Estimate &raquo;</a>
+                    <a href="{% url 'get_estimate' %}" class="pull-right btn btn-primary" role="button">Get Free Estimate &raquo;</a>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                 <div class="item-description left">
                     <h3>It's easy</h3>
                     <ol>
-                        <li><a href="">Submit your problem</a></li>
+                        <li><a href="{% url 'get_estimate' %}">Submit your problem</a></li>
                         <li>Get free estimate</li>
                         <li>Pay securely via PayPal &copy;</li>
                         <li>Get your solution!</li>
@@ -48,7 +48,7 @@
                 <div class="item-description">
                     <h3>Our promise</h3>
                     <p>We understand that all students are concerned about the accuracy of the solutions they receive. Each solution submitted by our tutors is reviewed by an independent expert prior to being sent to the customer. This significantly reduces the probability of an error caused by Human Factor.</p>
-                    <a href="#" class="pull-right btn btn-primary" role="button">See Example Solutions &raquo;</a>
+                    <a href="{% url 'experts' %}#example-solutions" class="pull-right btn btn-primary" role="button">See Example Solutions &raquo;</a>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
         <h2>Money Back Guarantee</h2>
         <img src="{% static 'images/guarantee.jpg' %}" alt="Money Back Guarantee" class="img-responsive pull-left" style="padding: 0 15px 15px 0;"/>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-primary" href="#" role="button">Read More &raquo;</a></p>
+        <p><a class="btn btn-primary" href="{% url 'moneyback' %}" role="button">Read More &raquo;</a></p>
         <div class="clearfix"></div>
     </div>
     <div class="col-lg-4">

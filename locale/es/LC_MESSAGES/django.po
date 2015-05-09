@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-13 21:26+0000\n"
+"POT-Creation-Date: 2014-04-12 03:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,71 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: captcha/fields.py:91
+msgid "Play CAPTCHA as audio file"
+msgstr ""
+
+#: captcha/fields.py:106 captcha/fields.py:135 captcha/tests/tests.py:99
+#: captcha/tests/tests.py:239 captcha/tests/tests.py:246
+msgid "Invalid CAPTCHA"
+msgstr ""
+
+#: captcha/tests/tests.py:125
+msgid "This field is required."
+msgstr ""
+
+#: mathsolutionshelp/settings.py:107
+msgid "English"
+msgstr ""
+
+#: mathsolutionshelp/settings.py:108
+msgid "Spanish"
+msgstr ""
+
+#: mathsolutionshelp/urls.py:18
+msgid "^get-estimate/$"
+msgstr "^obtener-un-estimado/$"
+
+#: mathsolutionshelp/urls.py:19
+msgid "^add-testimonial/$"
+msgstr "^anadir-un-testimonio/$"
+
+#: mathsolutionshelp/urls.py:20
+msgid "^contact-us/$"
+msgstr "^contactenos/$"
+
+#: mathsolutionshelp/urls.py:21
+msgid "^testimonials/$"
+msgstr "^testimonios/$"
+
+#: mathsolutionshelp/urls.py:25
+msgid "^about-us/$"
+msgstr "^sobre-nosotros/$"
+
+#: mathsolutionshelp/urls.py:26
+msgid "^problem-solving-service/$"
+msgstr "^servicio-de-resolucion-de-problemas/$"
+
+#: mathsolutionshelp/urls.py:27
+msgid "^our-experts/$"
+msgstr "^nuestros-expertos/$"
+
+#: mathsolutionshelp/urls.py:28
+msgid "^terms-of-service/$"
+msgstr "^terminos-de-servicio/$"
+
+#: mathsolutionshelp/urls.py:29
+msgid "^privacy-policy/$"
+msgstr "^politica-de-privacidad/$"
+
+#: mathsolutionshelp/urls.py:30
+msgid "^money-back-guarantee/$"
+msgstr "^garantia-de-devolucion-de-dinero/$"
+
+#: mathsolutionshelp/urls.py:31
+msgid "^thank-you/$"
+msgstr "^gracias/$"
 
 #: templates/base.html:14
 msgid "Home"
