@@ -54,7 +54,7 @@ def get_estimate(request):
             form.save()
 
             # now lets send email to the admins
-            mail_admins('New problem submitted', 'New problem has been submitted.', fail_silently=False)
+            # mail_admins('New problem submitted', 'New problem has been submitted.', fail_silently=False)
 
             return HttpResponseRedirect('/thank-you/')
         if form.errors:
@@ -81,7 +81,7 @@ def add_testimonial(request):
             form.save()
 
             # now lets send email to the admins
-            mail_admins('New testimonial added', 'New testimonial has been submitted.', fail_silently=False)
+            # mail_admins('New testimonial added', 'New testimonial has been submitted.', fail_silently=False)
 
             return HttpResponseRedirect('/thank-you/')
         if form.errors:
@@ -111,7 +111,7 @@ def contact_us(request):
             message = form.cleaned_data['text']
 
             # now lets send email to the admins
-            mail_admins('[Contact Us] ' + subject, 'From: ' + name + ', ' + email + '\n' + message, fail_silently=False)
+            # mail_admins('[Contact Us] ' + subject, 'From: ' + name + ', ' + email + '\n' + message, fail_silently=False)
 
             return HttpResponseRedirect('/thank-you/')
         if form.errors:

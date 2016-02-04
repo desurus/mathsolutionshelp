@@ -43,16 +43,11 @@
 						{{ form.text }}
 					</div>
 					<div class="clearfix"></div>
+                    {% comment %}
+                    {% include 'mainsite/captcha.html' %}
+                    {% endcomment %}
                     <div class="col-md-12">
-                        <strong>Please enter symbols from the image: <small><span class="text-danger glyphicon glyphicon-asterisk"></span></small></strong>
-                        {% if form.captcha.errors %}
-                            <div class="alert alert-danger">Please enter correct symbols from the image.</div>
-                        {% endif %}
-                        <div class="captcha-wrapper">
-                            {{ form.captcha }}
-                        </div>
-                        <div class="clearfix"></div>
-                        <button class="btn btn-primary" type="submit">Submit</button>
+					    <button class="btn btn-primary" type="submit">Submit</button>
                     </div>
 				</div>
 			</div>

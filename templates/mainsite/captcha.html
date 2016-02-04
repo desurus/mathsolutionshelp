@@ -1,0 +1,13 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<div class="col-md-12">
+    <strong>Please enter symbols from the image: <small><span class="text-danger glyphicon glyphicon-asterisk"></span></small></strong>
+    {% if form.captcha.errors %}
+        <div class="alert alert-danger">Please enter correct symbols from the image.</div>
+    {% endif %}
+    <div class="captcha-wrapper">
+        {{ form.captcha }}
+    </div>
+    <div class="clearfix"></div>
+</div>

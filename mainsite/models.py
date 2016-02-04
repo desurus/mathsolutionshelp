@@ -5,7 +5,7 @@ from django.contrib.flatpages.models import FlatPage
 from django import forms
 from django.conf import settings
 from django.forms import ModelForm
-from captcha.fields import CaptchaField
+# from captcha.fields import CaptchaField
 
 
 class Testimonial(models.Model):
@@ -32,7 +32,7 @@ class Testimonial(models.Model):
 class TestimonialForm(ModelForm):
     """Testimonial form for the add testimonial page."""
 
-    captcha = CaptchaField()
+    # captcha = CaptchaField()
 
     class Meta:
         model = Testimonial
@@ -90,7 +90,7 @@ class Problem(models.Model):
 class ProblemForm(ModelForm):
     """Problems Form object for our Problems class."""
 
-    captcha = CaptchaField()
+    # captcha = CaptchaField()
 
     class Meta:
         model = Problem

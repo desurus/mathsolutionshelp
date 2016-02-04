@@ -47,7 +47,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
     'mainsite',
-    'captcha',
+    # 'captcha',
 )
 
 MIDDLEWARE_CLASSES = (
