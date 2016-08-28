@@ -76,16 +76,8 @@
 							<div class="alert alert-danger">You have uploaded a non image file or you image is corrupted. Please try again.</div>
 						{% endif %}
 						<div class="form-group">
-							<label for="{{ form.attachment1.id_for_label }}">Image 1:</label>
-							{{ form.attachment1 }}
-						</div>
-						<div class="form-group">
-							<label for="{{ form.attachment2.id_for_label }}">Image 2:</label>
-							{{ form.attachment2 }}
-						</div>
-						<div class="form-group">
-							<label for="{{ form.attachment3.id_for_label }}">Image 3:</label>
-							{{ form.attachment3 }}
+							<label for="{{ form.attachment.id_for_label }}">Image(s):</label>
+							{{ form.attachment }}
 						</div>
 					</div>
 					<div class="clearfix"></div>

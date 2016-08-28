@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from mainsite.models import Testimonial, ProblemCounter, ProblemForm, TestimonialForm
-from mainsite.forms import ContactUsForm
+from mainsite.models import Testimonial, ProblemCounter, Problem, TestimonialForm
+from mainsite.forms import ContactUsForm, ProblemSubmissionForm
 from random import choice
 from datetime import datetime, timedelta
 from django.utils.timezone import utc
@@ -49,7 +49,7 @@ def get_estimate(request):
     context = {}
 
     if request.method == 'POST':
-        form = ProblemForm(request.POST, request.FILES)
+        form = ProblemSubmissionForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
 
@@ -61,7 +61,7 @@ def get_estimate(request):
             print form.errors
 
     else:
-        form = ProblemForm()
+        form = ProblemSubmissionForm()
 
     context.update({
         'form': form,

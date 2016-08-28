@@ -69,8 +69,6 @@ class Problem(models.Model):
         ('refunded', 'Cost refunded to user'),
         ('closed', 'Closed'),
     )
-    # lets generate random string for the file storage dir
-    folder = ''.join(random.choice(string.ascii_lowercase + string.digits) for x in range(16))
 
     status = models.CharField(choices=status_choices, max_length=50, default='submitted')
     name = models.CharField(max_length=50)
@@ -78,30 +76,20 @@ class Problem(models.Model):
     deadline = models.DateField()
     solution_type = models.CharField(choices=solution_type_choices, max_length=20, default=0)
     comments = models.TextField(blank=True, max_length=500)
-    attachment1 = models.ImageField(upload_to=folder, blank=True)
-    attachment2 = models.ImageField(upload_to=folder, blank=True)
-    attachment3 = models.ImageField(upload_to=folder, blank=True)
     date_created = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
         return '[' + unicode(self.date_created.strftime("%d/%m/%y, %H:%M")) + '] ' + self.email
 
 
-class ProblemForm(ModelForm):
-    """Problems Form object for our Problems class."""
+class ProblemImage(models.Model):
+    """This class is for storing images for the problem."""
 
-    # captcha = CaptchaField()
+    # lets generate random string for the file storage dir
+    folder = ''.join(random.choice(string.ascii_lowercase + string.digits) for x in range(16))
 
-    class Meta:
-        model = Problem
-        fields = ['name', 'email', 'deadline', 'solution_type', 'comments', 'attachment1', 'attachment2', 'attachment3']
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'deadline': forms.DateInput(attrs={'class': 'form-control'}),
-            'solution_type': forms.RadioSelect(),
-            'comments': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
-        }
+    problem = models.ForeignKey(Problem)
+    attachment = models.ImageField(upload_to=folder, blank=True)
 
 
 class ExtendedFlatPage(FlatPage):
